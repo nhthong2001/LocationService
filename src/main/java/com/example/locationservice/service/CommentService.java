@@ -38,4 +38,7 @@ public class CommentService {
 
         return  commentRepository.save(c);
     }
+    public int updateComment(Comment comment){
+        return commentRepository.updateComment(comment.getLocation_id(), comment.getCreate_by(), comment.getContent());
+    }
 }

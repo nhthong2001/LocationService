@@ -29,4 +29,8 @@ public class RattingService {
     public Ratting addNew(Ratting ratting) {
         return rattingRepository.save(ratting);
     }
+
+    public int updateRatting(Ratting ratting) {
+        return rattingRepository.updateRatting(ratting.getPointRating(), ratting.getCreate_by());
+    }
 }

@@ -37,5 +37,10 @@ public class RattingController {
         return new ResponseEntity<>(rattingService.addNew(ratting), HttpStatus.OK);
     }
 
+    @PutMapping
+    public ResponseEntity<Integer> updateRatting(@RequestBody Ratting ratting) {
+        return new ResponseEntity<>(rattingService.updateRatting(ratting), HttpStatus.OK);
+    }
+
 
 }
