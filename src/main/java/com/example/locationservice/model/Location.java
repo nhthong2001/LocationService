@@ -1,8 +1,11 @@
 package com.example.locationservice.model;
 
+import com.example.locationservice.dto.LocationDto;
+
 import javax.persistence.*;
 
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Entity
@@ -77,6 +80,22 @@ public class Location {
         this.region_id = region_id;
         this.type_id = type_id;
         this.is_deleted = is_deleted;
+    }
+
+    public Location(LocationDto locationDto) {
+        this.create_by = locationDto.create_by;
+        this.name = locationDto.name;
+        this.description = locationDto.description;
+        this.link_avatar = locationDto.link_image;
+        this.rating = locationDto.rating;
+        this.address = locationDto.address;
+        this.phone_number = locationDto.phone_number;
+        this.website = locationDto.website;
+        this.time_open = LocalTime.parse(locationDto.time_open, DateTimeFormatter.ofPattern("HH:mm"));
+        this.time_close = LocalTime.parse(locationDto.time_close, DateTimeFormatter.ofPattern("HH:mm"));
+        this.is_private = false;
+        this.type_id = locationDto.type_id;
+        this.is_deleted = false;
     }
 
     public Integer getId() {

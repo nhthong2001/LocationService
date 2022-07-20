@@ -29,4 +29,8 @@ public class LocationService {
     public Location addNew(Location location) {
         return locationRepository.save(location);
     }
+
+    public List<Location> getLocationByUsername(String username) {
+        return locationRepository.findByUsername(username);
+    }
 }
