@@ -74,13 +74,13 @@ public class LocationController {
     @ResponseBody
     public ResponseEntity<ByteArrayResource> getImage(@PathVariable("locationId") Integer locationId) {
         Optional<Location> lc = locationService.getLocationByID(locationId);
-        String linkImg = lc.get().link_avatar;
-        if (linkImg == null || linkImg == "") {
+
+        if (lc.get().link_avatar == null || lc.get().link_avatar == "") {
             return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
         }
         try {
             //Path filename = Paths.get("uploads", photo);
-            byte[] buffer = Files.readAllBytes(Paths.get(linkImg));
+            byte[] buffer = Files.readAllBytes(Paths.get(lc.get().link_avatar));
             ByteArrayResource byteArrayResource = new ByteArrayResource(buffer);
             return ResponseEntity.ok().contentLength(buffer.length).contentType(MediaType.parseMediaType("image/png")).body(byteArrayResource);
         } catch (Exception e) {

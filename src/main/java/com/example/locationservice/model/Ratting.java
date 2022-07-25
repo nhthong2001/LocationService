@@ -11,7 +11,9 @@ import java.time.LocalDate;
 @Table(name = "Ratting")
 public class Ratting {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
+
     @Column(name = "create_by")
     public String create_by;
     @Column(name = "location_id")

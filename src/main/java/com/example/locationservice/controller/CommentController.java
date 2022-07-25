@@ -33,9 +33,4 @@ public class CommentController {
     public ResponseEntity<Comment> update(@RequestBody Comment comment) {
         return new ResponseEntity<>(commentService.update(comment), HttpStatus.OK);
     }
-
-    @PostMapping("/update1")
-    public ResponseEntity<Integer> updateComment(@RequestBody Comment comment) {
-        return new ResponseEntity<>(commentService.updateComment(comment), HttpStatus.OK);
-    }
 }
