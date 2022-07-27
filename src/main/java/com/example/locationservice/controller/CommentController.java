@@ -1,5 +1,6 @@
 package com.example.locationservice.controller;
 
+import com.example.locationservice.dto.CommentDto;
 import com.example.locationservice.model.Comment;
 import com.example.locationservice.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class CommentController {
     }
 
     @GetMapping("/{location_id}")
-    public ResponseEntity<List<Comment>> getAllCommentByLocationID(@PathVariable("location_id") String location_id) {
+    public ResponseEntity<List<CommentDto>> getAllCommentByLocationID(@PathVariable("location_id") String location_id) {
         return new ResponseEntity<>(commentService.getAllCommentByLocationID(location_id), HttpStatus.OK);
     }
 

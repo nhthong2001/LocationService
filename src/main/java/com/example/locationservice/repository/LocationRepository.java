@@ -12,4 +12,6 @@ import java.util.List;
 public interface LocationRepository extends JpaRepository<Location, Integer> {
     @Query(value = "SELECT * FROM location l where l.create_by = :username", nativeQuery = true)
     List<Location> findByUsername(@Param("username") String username);
+    @Query(value = "SELECT * FROM location l where l.unique_id = :unique_id", nativeQuery = true)
+    Location findByUniqueId(@Param("unique_id") String location_id);
 }

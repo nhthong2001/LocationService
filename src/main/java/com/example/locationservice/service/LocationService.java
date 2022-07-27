@@ -101,4 +101,8 @@ public class LocationService {
         }
         return lists;
     }
+
+    public Location getLocationByUniqueId(String location_id) {
+        return locationRepository.findByUniqueId(location_id);
+    }
 }

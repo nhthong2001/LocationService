@@ -28,7 +28,7 @@ public class RattingController {
     }
 
     @GetMapping("/{location_id}/{create_by}")
-    public ResponseEntity<Optional<Ratting>> getAllRattingByLocationID(@PathVariable("location_id") String location_id, @PathVariable("create_by") String create_by) {
+    public ResponseEntity<Optional<Ratting>> getRattingByUsername(@PathVariable("location_id") String location_id, @PathVariable("create_by") String create_by) {
         return new ResponseEntity<>(rattingService.getRatting(location_id, create_by), HttpStatus.OK);
     }
 
